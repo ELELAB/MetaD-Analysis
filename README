@@ -1,0 +1,36 @@
+usage: MetaD_analysis_0.1.1.py [-h] [-n] [-cvs rg ab [rg ab ...]]
+                               [-stride t [fs]] [-temp 298 [K]]
+                               [-hills ./HILLS] [-colvar ./colvar]
+                               [-plumed /usr/local/plumed-2.2.0/bin/plumed]
+                               [-plot] [-pdf filename.pdf] [-nocolvar]
+                               [-nohills] [-nt N] [-no2D]
+                               [-rg | -xtc fname.xtc | -gro fname.gro]
+
+This is a script that can assist in plotting data of MetaD simulations run with plumed2 with matplotlib. The script runs sum_hills for specified CVs and the the combination pairs of those.
+
+Very basic command, plot + write pdf of all CVs and combinations:
+python MetaD_analysis.py -plot -pdf plot.pdf -stride 20000
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -n                    Dry run, no sum_hills calculation. Use if calculation
+                        is already run before
+  -cvs rg ab [rg ab ...]
+                        Specified CVs. If no CVs specified: Sumhills for all
+                        CVs+pairs of those will be run.
+  -stride t [fs]        Stride length
+  -temp 298 [K]         Specify temperature of simulation in Kelvin
+  -hills ./HILLS        Location of Hills file
+  -colvar ./colvar      Location of the colvar file
+  -plumed /usr/local/plumed-2.2.0/bin/plumed
+                        plumed location
+  -plot                 Plot in window
+  -pdf filename.pdf     Write .pdf at specified file location
+  -nocolvar             Do not plot the CVs from colvar
+  -nohills              Do not plot the hillsheight
+  -nt N                 specify number of threads
+  -no2D                 Do not run 2D sum_hills
+  -rg                   Plot Rg from .xtc and .gro file
+  -xtc fname.xtc        specify .xtc file
+  -gro fname.gro        specify .gro file
+
